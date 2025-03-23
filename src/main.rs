@@ -1,5 +1,5 @@
-use tokio::net::{TcpListener, TcpStream};
 use mini_redis::{Connection, Frame};
+use tokio::net::{TcpListener, TcpStream};
 
 #[tokio::main]
 async fn main() {
@@ -9,7 +9,7 @@ async fn main() {
     loop {
         // The second item contains the IP and port of the new connection.
         let (socket, _) = listener.accept().await.unwrap();
-        tokio::spawn(async move{
+        tokio::spawn(async move {
             process(socket).await;
         });
     }
